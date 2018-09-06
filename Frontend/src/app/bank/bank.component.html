@@ -1,0 +1,248 @@
+<app-navbar></app-navbar>
+<main role="main" class="bank">
+  <div class="row no-margin">
+    <div class="col-md-12 text-center" style="display: inline-flex;">
+      <div class="mx-auto">
+        <div class="card-deck">
+          <div class="card text-white bg-primary mr-3" style="width: 16rem;">
+            <div class="card-header">Initialize B2C Txn</div>
+            <div class="card-body">
+              <!--            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+              <button class="btn btn-light" (click)="openVerticallyCentered(B2CTxn)">Proceed</button>
+            </div>
+          </div>
+          <div class="card text-white bg-success mr-3" style="width: 16rem;">
+            <div class="card-header">C2B Txn</div>
+            <div class="card-body">
+              <!--            <h5 class="card-title">Success card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+              <button class="btn btn-light" (click)="openVerticallyCentered(C2BTxn)">Proceed</button>
+            </div>
+          </div>
+          <div class="card text-white bg-warning mr-3" style="width: 16rem;">
+            <div class="card-header">Check Credit Score</div>
+            <div class="card-body">
+              <!--            <h5 class="card-title">Warning card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+              <button class="btn btn-light" (click)="openVerticallyCentered(creditscore1)">Proceed</button>
+            </div>
+          </div>
+          <div class="card text-white bg-info mr-3" style="width: 16rem;">
+            <div class="card-header">Delay on Payment C2B</div>
+            <div class="card-body">
+              <!--            <h5 class="card-title">Warning card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+              <button class="btn btn-light" (click)="openVerticallyCentered(delaypayment1)">Proceed</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row margin-5" *ngIf="transactionDetails">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          Response
+        </div>
+        <div class="card-body" style="overflow-x:  auto;">
+          <textarea class="prettyprint form-control" disabled="disabled" readonly="readonly" style="width: 100%;height: 280px;">
+        {{transactionDetails | json}}
+      </textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<ng-template #B2CTxn let-c="close" let-d="dismiss">
+  <div class="modal-header bg-primary" style="color: #fff;">
+    <h5 class="modal-title">Initialize B2C Txn</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="companyid">CompanyID</label>
+          <input type="text" class="form-control" name="companyid" id="companyid" [(ngModel)]="companyid" placeholder="CompanyID">
+        </div>
+       <!--  <div class="form-group col-md-6">
+          <label for="bankid">BankID</label>
+          <input type="text" class="form-control" name="bankid" id="bankid" [(ngModel)]="bankid" placeholder="BankID">
+        </div> -->
+        <div class="form-group col-md-6">
+          <label for="bankano">Bank Account Number</label>
+          <input type="text" class="form-control" name="bankano" id="bankano" [(ngModel)]="bankano" placeholder="Bank Account Number">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="amountdue">Principle Amount</label>
+          <input type="text" class="form-control" name="amountdue" id="amountdue" [(ngModel)]="amountdue" placeholder="Amount Due">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="accounttype">Account Type</label>
+          <select type="text" class="form-control" name="accounttype" id="accounttype" [(ngModel)]="accounttype">
+            <option value="" selected disabled>Select Account Type</option>
+            <option value="0" >Loan</option>
+            <option value="1" >Credit Card</option>
+            <option value="2" >Mortgage</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="initiateb2c();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #C2BTxn let-c="close" let-d="dismiss">
+  <div class="modal-header bg-success" style="color: #fff;">
+    <h5 class="modal-title">C2BTxn</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="companyid">CompanyID</label>
+          <input type="text" class="form-control" name="companyid" id="companyid" [(ngModel)]="companyid" placeholder="CompanyID">
+        </div>
+     <!--    <div class="form-group col-md-6">
+          <label for="bankid">BankID</label>
+          <input type="text" class="form-control" name="bankid" id="bankid" [(ngModel)]="bankid" placeholder="BankID">
+        </div> -->
+        <div class="form-group col-md-6">
+          <label for="bankano">Bank Account Number</label>
+          <input type="text" class="form-control" name="bankano" id="bankano" [(ngModel)]="bankano" placeholder="Bank Account Number">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="installmentamount">Installment Amount</label>
+          <input type="text" class="form-control" name="installmentamount" id="installmentamount" [(ngModel)]="installmentamount" placeholder="Installment Amount">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="duedate">Due Date</label>
+
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="duedate" [(ngModel)]="duedate" ngbDatepicker #d1="ngbDatepicker"
+                  id="duedate">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button"(blur)="days_arrear();" (focus)="days_arrear();">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </button>
+                </div>
+              </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="daysinarrear">Days in Arrear</label>
+          <input type="number" class="form-control" name="daysinarrear" id="daysinarrear" [(ngModel)]="daysinarrear" placeholder="Days in Arrear">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="paymentdate">Payment Date</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="paymentdate" [(ngModel)]="paymentdate" ngbDatepicker #d2="ngbDatepicker"
+                  id="paymentdate">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button"(blur)="days_arrear();" (focus)="days_arrear();">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>        
+                  </button>
+                </div>
+              </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="abalance">Account Balance</label>
+          <input type="text" class="form-control" name="abalance" id="abalance" [(ngModel)]="abalance" placeholder="Account Balance">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="addC2CTxn();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #creditscore1 let-c="close" let-d="dismiss">
+  <div class="modal-header bg-warning" style="color: #fff;">
+    <h5 class="modal-title">Check Credit Score</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="companyid">CompanyID</label>
+          <input type="text" class="form-control" name="companyid" id="companyid" [(ngModel)]="companyid" placeholder="CompanyID">
+        </div>
+     <!--    <div class="form-group col-md-6">
+          <label for="bankid">BankID</label>
+          <input type="text" class="form-control" name="bankid" id="bankid" [(ngModel)]="bankid" placeholder="BankID">
+        </div> -->
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="creditscore();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #delaypayment1 let-c="close" let-d="dismiss">
+  <div class="modal-header bg-info" style="color: #fff;">
+    <h5 class="modal-title">Delay on Payment C2B</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="companyid">CompanyID</label>
+          <input type="text" class="form-control" name="companyid" id="companyid" [(ngModel)]="companyid" placeholder="CompanyID">
+        </div>
+      <!--   <div class="form-group col-md-6">
+          <label for="bankid">BankID</label>
+          <input type="text" class="form-control" name="bankid" id="bankid" [(ngModel)]="bankid" placeholder="BankID">
+        </div> -->
+        <div class="form-group col-md-6">
+          <label for="bankano">Bank Account Number</label>
+          <input type="text" class="form-control" name="bankano" id="bankano" [(ngModel)]="bankano" placeholder="Bank Account Number">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="installmentamount">Installment Amount</label>
+          <input type="text" class="form-control" name="installmentamount" id="installmentamount" [(ngModel)]="installmentamount" placeholder="Installment Amount">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="duedate">Due Date</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="duedate" [(ngModel)]="duedate" ngbDatepicker #d1="ngbDatepicker"
+                  id="duedate">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </button>
+                </div>
+              </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="delaydays">Delay Days</label>
+          <input type="number" class="form-control" name="delaydays" id="delaydays" [(ngModel)]="delaydays" placeholder="Delay Days">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="delaypayment();d('Cross click');">Submit</button>
+  </div>
+</ng-template>

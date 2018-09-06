@@ -1,0 +1,164 @@
+<app-navbar></app-navbar>
+<main role="main" class="home">
+	<div class="row no-margin">
+		<div class="col-md-12 text-center" style="display: inline-flex;">
+			<div class="mx-auto">
+				<div class="card-deck">
+					<div class="card text-white bg-primary mr-3" style="width: 15rem;">
+					  <div class="card-header">Bank</div>
+					  <div class="card-body">
+<!-- 					    <h5 class="card-title">Primary card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+         				<button class="btn btn-light" (click)="openVerticallyCentered(BankLogin1)">Go to Bank</button>
+						<!-- <a routerLink="/bank" class="btn btn-light">Go to Bank</a> -->
+					  </div>
+					</div>
+					<div class="card text-white bg-success mr-3" style="width: 15rem;">
+					  <div class="card-header">Company</div>
+					  <div class="card-body">
+<!-- 					    <h5 class="card-title">Success card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+         				<button class="btn btn-light" (click)="openVerticallyCentered(CompanyLogin1)">Go to Company</button>
+						<!-- <a routerLink="/company" class="btn btn-light">Go to Company</a> -->
+					  </div>
+					</div>
+					<div class="card text-white bg-warning mr-3" style="width: 15rem;">
+					  <div class="card-header">Collection Agency</div>
+					  <div class="card-body">
+<!-- 					    <h5 class="card-title">Warning card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+         				<button class="btn btn-light" (click)="openVerticallyCentered(CAgencyLogin1)">Go to Collection Agency</button>
+						<!-- <a routerLink="/col-agency" class="btn btn-light">Go to Collection Agency</a> -->
+					  </div>
+					</div>
+					<div class="card text-white bg-info mr-3" style="width: 15rem;">
+					  <div class="card-header">Admin</div>
+					  <div class="card-body">
+<!-- 					    <h5 class="card-title">Info card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+         				<button class="btn btn-light" (click)="openVerticallyCentered(AdminLogin1)">Go to Admin</button>
+						<!-- <a routerLink="/admin" class="btn btn-light">Go to Admin</a> -->
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+<ng-template #BankLogin1 let-c="close" let-d="dismiss">
+  <div class="modal-header bg-primary" style="color: #fff;">
+    <h5 class="modal-title">Login to Bank</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="aaddress">Account Address</label>
+          <input type="text" class="form-control" name="aaddress" id="aaddress" [(ngModel)]="aaddress" placeholder="Account Address">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" name="password" id="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning col-md-6 " (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary col-md-6 " (click)="BankLogin();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #CompanyLogin1 let-c="close" let-d="dismiss">
+  <div class="modal-header bg-success" style="color: #fff;">
+    <h5 class="modal-title">Login to Company</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="aaddress">Account Address</label>
+          <input type="text" class="form-control" name="aaddress" id="aaddress" [(ngModel)]="aaddress" placeholder="Account Address">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" name="password" id="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning col-md-6" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary col-md-6" (click)="CompanyLogin();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #CAgencyLogin1 let-c="close" let-d="dismiss">
+  <div class="modal-header bg-warning" style="color: #fff;">
+    <h5 class="modal-title">Login to Collection Agency</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="aaddress">Account Address</label>
+          <input type="text" class="form-control" name="aaddress" id="aaddress" [(ngModel)]="aaddress" placeholder="Account Address">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" name="password" id="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning col-md-6 " (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary col-md-6 " (click)="CAgencyLogin();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #AdminLogin1 let-c="close" let-d="dismiss">
+  <div class="modal-header bg-info" style="color: #fff;">
+    <h5 class="modal-title">Login to Admin</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="aaddress">Account Address</label>
+          <input type="text" class="form-control" name="aaddress" id="aaddress" [(ngModel)]="aaddress" placeholder="Account Address">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" name="password" id="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning col-md-6 " (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary col-md-6 " (click)="AdminLogin(); d('Cross click');">Submit</button>
+  </div>
+</ng-template>

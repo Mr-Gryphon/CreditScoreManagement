@@ -1,0 +1,894 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "_to",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "acceptOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_bankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "_installmentAmount",
+				"type": "uint256"
+			},
+			{
+				"name": "_dueDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_daysinArrear",
+				"type": "uint256"
+			},
+			{
+				"name": "_paymentDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_accountBalance",
+				"type": "uint256"
+			}
+		],
+		"name": "addCompanyToBankTx",
+		"outputs": [
+			{
+				"name": "_isTx",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_company2ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_contractID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_invoiceNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "_installmentAmount",
+				"type": "uint256"
+			},
+			{
+				"name": "_dueDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_paymentDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_daysInArrear",
+				"type": "uint256"
+			},
+			{
+				"name": "_outstandingBalance",
+				"type": "uint256"
+			}
+		],
+		"name": "addCompanyToCompanyTx",
+		"outputs": [
+			{
+				"name": "_isTx",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_bankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "_installmentAmount",
+				"type": "uint256"
+			},
+			{
+				"name": "_dueDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_delayDays",
+				"type": "uint256"
+			}
+		],
+		"name": "delayOnPaymentC2B",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_company2ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_startDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_endDate",
+				"type": "uint256"
+			}
+		],
+		"name": "giveAccessToCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_bankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "_amountDue",
+				"type": "uint256"
+			},
+			{
+				"name": "_accType",
+				"type": "uint8"
+			},
+			{
+				"name": "_openDate",
+				"type": "uint256"
+			}
+		],
+		"name": "initiateNewB2C",
+		"outputs": [
+			{
+				"name": "_initiate",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_company2ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_contractID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_openDate",
+				"type": "uint256"
+			}
+		],
+		"name": "initiateNewC2C",
+		"outputs": [
+			{
+				"name": "_initiate",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_bankAccountAddress",
+				"type": "address"
+			},
+			{
+				"name": "_bankName",
+				"type": "string"
+			}
+		],
+		"name": "registerBank",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "Company1ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "Company2ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "StartDate",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "EndDate",
+				"type": "uint256"
+			}
+		],
+		"name": "AccessGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "Company1ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "Company2ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "ContractID",
+				"type": "bytes32"
+			}
+		],
+		"name": "newDebitTransactionCompanytoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "Company1ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "Company2ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "ContractID",
+				"type": "bytes32"
+			}
+		],
+		"name": "newContractCompanytoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "AccountBalance",
+				"type": "uint256"
+			}
+		],
+		"name": "newDebitTransactionBanktoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "AccType",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"name": "AccountDue",
+				"type": "uint256"
+			}
+		],
+		"name": "newCreditTransactionBanktoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "InstallmentAmount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "DueDate",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "DelayDays",
+				"type": "uint256"
+			}
+		],
+		"name": "DelayOnTxC2B",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CollectionAgencyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "LenderID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "contractIDOrbankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "ExtraArrearDays",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "PaymentDueDate",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "Amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "DelayReason",
+				"type": "string"
+			}
+		],
+		"name": "DelayReason",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CollectionAgencyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CollectionAgencyAccountAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "CollectionAgencyName",
+				"type": "string"
+			}
+		],
+		"name": "CollectionAgencyAdded",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_collectionAgencyName",
+				"type": "string"
+			},
+			{
+				"name": "_collectionAgencyAccountAddress",
+				"type": "address"
+			}
+		],
+		"name": "registerCollectionAgency",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CollectionAgencyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CollectionAgencyName",
+				"type": "string"
+			}
+		],
+		"name": "CollectionAgencyExist",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyAccountAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyName",
+				"type": "string"
+			}
+		],
+		"name": "CompanyAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankName",
+				"type": "string"
+			}
+		],
+		"name": "BankAlreadyExist",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankAccountAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "BankName",
+				"type": "string"
+			}
+		],
+		"name": "BankAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyName",
+				"type": "string"
+			}
+		],
+		"name": "CompanyExist",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyAccountAddress",
+				"type": "address"
+			},
+			{
+				"name": "_companyName",
+				"type": "string"
+			}
+		],
+		"name": "registerCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_lenderID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_contractIDOrbankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "_arrearDays",
+				"type": "uint256"
+			},
+			{
+				"name": "_dueDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"name": "_delayReason",
+				"type": "string"
+			}
+		],
+		"name": "updateArrearTime",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			}
+		],
+		"name": "checkCreditScoreOFCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "newOwner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "queryCompanyDetails",
+		"outputs": [
+			{
+				"name": "ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "creditScore",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "retriveCollectionAgencyTxOnDelay",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "retriveTransactionC2C",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "retriveTransactionsB2C",
+		"outputs": [
+			{
+				"name": "bankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "bankID",
+				"type": "bytes32"
+			},
+			{
+				"name": "installmentAmount",
+				"type": "uint256"
+			},
+			{
+				"name": "TxType",
+				"type": "uint8"
+			},
+			{
+				"name": "DueDate",
+				"type": "uint256"
+			},
+			{
+				"name": "PaymentorOpenDate",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_between",
+				"type": "uint8"
+			}
+		],
+		"name": "totalTransaction",
+		"outputs": [
+			{
+				"name": "count",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

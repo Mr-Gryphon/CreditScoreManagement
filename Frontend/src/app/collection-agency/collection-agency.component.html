@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<main role="main" class="agency">
+	<div class="row no-margin">
+		<div class="col-md-12  text-center" style="display: inline-flex;">
+			<div class="mx-auto">	
+				<div class="card-deck">
+					<div class="card text-white bg-primary mr-3" style="width: 16rem;">
+					  <div class="card-header">Report Payment Defaults</div>
+					  <div class="card-body">
+						<button class="btn btn-light" (click)="openVerticallyCentered(delayreasonmodal)">Proceed</button>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+   <div class="row margin-5" *ngIf="transactionDetails">
+    <div class="col-md-12">
+      <div class="card">
+    <div class="card-header">
+      Response
+    </div>
+    <div class="card-body"  style="overflow-x:  auto;">
+      <textarea class="prettyprint form-control" disabled="disabled" readonly="readonly" style="width: 100%;height: 280px;">
+        {{transactionDetails | json}}
+      </textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<ng-template #delayreasonmodal let-c="close" let-d="dismiss">
+  <div class="modal-header bg-primary" style="color: #fff;">
+    <h5 class="modal-title">Report Payment Defaults</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="companyid">CompanyID</label>
+          <input type="text" class="form-control" name="companyid" id="companyid" [(ngModel)]="companyid" placeholder="CompanyID">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lenderid">LenderID</label>
+          <input type="text" class="form-control" name="lenderid" id="lenderid" [(ngModel)]="lenderid" placeholder="LenderID">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="caid">Collection Agency ID</label>
+          <input type="text" class="form-control" name="caid" id="caid" [(ngModel)]="caid" placeholder="Collection Agency ID">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="bankano">Bank Account Number/ContractID</label>
+          <input type="text" class="form-control" name="bankano" id="bankano" [(ngModel)]="bankano" placeholder="Bank Account Number/ContractID">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="daysinarrear">Days in Arrear</label>
+          <input type="number" class="form-control" name="daysinarrear" id="daysinarrear" [(ngModel)]="daysinarrear" placeholder="Days in Arrear">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="delayreason">Delay Reason</label>
+          <input type="text" class="form-control" name="delayreason" id="delayreason" [(ngModel)]="delayreason" placeholder="Delay Reason">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="payment_due_date">Payment Due Date</label>
+                 <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="payment_due_date" [(ngModel)]="payment_due_date" ngbDatepicker #d1="ngbDatepicker" id="payment_due_date">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+        </div>
+        <!-- <div class="form-group col-md-6">
+          <label for="install_amt">Installment Amount</label>
+          <input type="number" class="form-control" name="install_amt" id="install_amt" [(ngModel)]="install_amt" placeholder="Installment Amount">
+        </div> -->
+        <div class="form-group col-md-6">
+          <label for="payment_due_amt">Paymnet Due Amount</label>
+          <input type="number" class="form-control" name="payment_due_amt" id="payment_due_amt" [(ngModel)]="payment_due_amt" placeholder="Payment Due Amount">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="updateArrearTime();d('Cross click');">Submit</button>
+  </div>
+</ng-template>

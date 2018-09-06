@@ -1,0 +1,155 @@
+app.post('/AllTxn', function(req, res) {
+	var address = req.body.address,
+		_between = req.body.lendertype,
+		no_transaction = req.body.no_transaction;
+	console.log(req.body);
+	var output = {};
+	creditscore.totalTransaction(_between,{
+		from: address
+	}, function(err, result) {
+		if (err) {
+			console.log(err);
+			res.end(JSON.stringify(err));
+		}
+		count = JSON.parse(result);
+		output["Total Transaction"] = count;
+
+		if (no_transaction < count) {
+			count = no_transaction;
+		}
+		console.log(count);
+		if (count != 0) {
+			// var flag = 0;
+			var f = 0;
+			if (_between == 2) {
+				for (var i = 0; i < count; i++) {
+					creditscore.retriveCollectionAgencyTxOnDelay( i, {
+						from: address
+					}, function(err, result) {
+						console.log(result);
+						output[f] = [];
+						if (result) {
+							output[f].push({
+								"collectionAgencyID": result[0]
+							});
+							output[f].push({
+								"lenderID": result[1]
+							});
+							output[f].push({
+								"contractIDOrbankAccountNumber": result[2]
+							});
+							output[f].push({
+								"arrearDays": result[3]
+							});
+							output[f].push({
+								"dueDate": result[4]
+							});
+							output[f].push({
+								"delayReason": result[5]
+							});
+						}
+
+						console.log(output);
+						f++;
+						// console.log(flag);
+						if (f == count) {
+							res.end(JSON.stringify(output));
+
+							// process.exit();
+						}
+					});
+				}
+				// res.end(output);
+				// res.end(JSON.stringify(output));
+			} else if (_between == 1) {
+				for (var i = 0; i < count; i++) {
+					// while (output[i] == null || i==count) {
+
+					creditscore.retriveTransactionsB2C(i, {
+						from: address
+					}, function(err, result) {
+						output[f] = [];
+
+						// console.log(result);
+						if (result) {
+							output[f].push({
+								"bankAccountNumber": result[0]
+							});
+							// output[f].push({
+							// 	"bankID": result[1]
+							// });
+							output[f].push({
+								"installmentAmount": result[2]
+							});
+							output[f].push({
+								"txType": result[3]
+							});
+							output[f].push({
+								"dueDate": result[4]
+							});
+							output[f].push({
+								"paymentDate": result[5]
+							});
+							// f++;
+						}
+
+						console.log(output);
+						f++;
+						// console.log(flag);
+						if (f == count) {
+							res.end(JSON.stringify(output));
+
+							// process.exit();
+						}
+					});
+					// }
+				}
+				// res.end(output);
+				// res.end(JSON.stringify(output));
+			} else if (_between == 0) {
+				for (var i = 0; i < count; i++) {
+					creditscore.retriveTransactionC2C(i, {
+						from: address
+					}, function(err, result) {
+						output[f] = [];
+
+						// console.log(result);
+						if (result) {
+							output[f].push({
+								"company1ID": result[0]
+							});
+							output[f].push({
+								"contractID": result[1]
+							});
+							output[f].push({
+								"installmentAmount": result[2]
+							});
+							output[f].push({
+								"dueDate": result[3]
+							});
+							output[f].push({
+								"daysinArrear": result[4]
+							});
+							output[f].push({
+								"txType": result[5]
+							});
+						}
+						f++;
+						// console.log(flag);
+						if (f == count) {
+							// process.exit();
+							res.end(JSON.stringify(output));
+
+						}
+					});
+				}
+				// res.end(output);
+				// res.end(JSON.stringify(output));
+			}
+		} else {
+			res.end(JSON.stringify({
+				"Number of Transaction": 0
+			}));
+		}
+	});
+});

@@ -1,0 +1,142 @@
+<app-navbar></app-navbar>
+<main role="main" class="admin">
+	<div class="row no-margin">
+		<div class="col-md-12 text-center" style="display: inline-flex;">
+			<div class="mx-auto">	
+				<div class="card-deck">
+					<div class="card text-white bg-primary mr-3" style="width: 16rem;">
+				  <div class="card-header">Register Bank</div>
+				  <div class="card-body">
+<!-- 				    <h5 class="card-title">Primary card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+					<button class="btn btn-light" (click)="openVerticallyCentered(registerBank)">Register Bank</button>
+				  </div>
+				</div>
+				<div class="card text-white bg-success mr-3" style="width: 16rem;">
+				  <div class="card-header">Register Company</div>
+				  <div class="card-body">
+<!-- 				    <h5 class="card-title">Success card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+					<button class="btn btn-light" (click)="openVerticallyCentered(registerCompany)">Register Company</button>
+				  </div>
+				</div>
+				<div class="card text-white bg-warning mr-3" style="width: 16rem;">
+				  <div class="card-header">Register Collection Agency</div>
+				  <div class="card-body">
+<!-- 				    <h5 class="card-title">Warning card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+					<button class="btn btn-light" (click)="openVerticallyCentered(registerCollectionAgency)">Register Collection Agency</button>
+				  </div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="row margin-5" *ngIf="transactionDetails">
+    <div class="col-md-12">
+      <div class="card">
+    <div class="card-header">
+      Response
+    </div>
+    <div class="card-body" style="overflow-x:  auto;">
+     <textarea class="prettyprint form-control" disabled="disabled" readonly="readonly" style="width: 100%;height: 280px;">
+        {{transactionDetails | json}}
+      </textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<ng-template #registerBank let-c="close" let-d="dismiss">
+  <div class="modal-header bg-primary" style="color: #fff;">
+    <h5 class="modal-title">Register Bank</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+    <!--   <div class="form-group col-md-12">
+        <label for="aaddress">Bank Account Address</label>
+        <input type="text" class="form-control" name="aaddress" id="aaddress" [(ngModel)]="aaddress" value="1" readonly>
+      </div> -->
+        <div class="form-group col-md-6">
+          <label for="bankname">Bank Name</label>
+          <input type="text" class="form-control" name="bankname" id="bankname" [(ngModel)]="bankname" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="regaddress">Bank Registered Address</label>
+          <input type="text" class="form-control" name="regaddress" id="regaddress" [(ngModel)]="regaddress" placeholder="Registered Address">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="submitBank();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #registerCompany let-c="close" let-d="dismiss">
+  <div class="modal-header bg-success" style="color: #fff;">
+    <h5 class="modal-title">Register Company</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <form>
+      <div class="form-row">
+     <!--  <div class="form-group col-md-12">
+        <label for="aaddress">Company Account Address</label>
+        <input type="text" class="form-control" name="aaddress" id="aaddress" [(ngModel)]="aaddress" value="2" readonly>
+      </div> -->
+        <div class="form-group col-md-6">
+          <label for="bankname">Company Name</label>
+          <input type="text" class="form-control" name="bankname" id="bankname" [(ngModel)]="bankname" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="regaddress">Company Registered Address</label>
+          <input type="text" class="form-control" name="regaddress" id="regaddress" [(ngModel)]="regaddress" placeholder="Registered Address">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="submitCompany();d('Cross click');">Submit</button>
+  </div>
+</ng-template>
+
+<ng-template #registerCollectionAgency let-c="close" let-d="dismiss">
+  <div class="modal-header bg-warning" style="color: #fff;">
+    <h5 class="modal-title">Register Collection Agency</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+     <!--  <div class="form-group col-md-12">
+        <label for="aaddress">Agency Account Address</label>
+        <input type="text" class="form-control" name="aaddress" id="aaddress" [(ngModel)]="aaddress" value="3" readonly>
+      </div> -->
+        <div class="form-group col-md-6">
+          <label for="bankname">Agency Name</label>
+          <input type="text" class="form-control" name="bankname" id="bankname" [(ngModel)]="bankname" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="regaddress">Agency Registered Address</label>
+          <input type="text" class="form-control" name="regaddress" id="regaddress" [(ngModel)]="regaddress" placeholder="Registered Address">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-sm" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="submitAgency();d('Cross click');">Submit</button>
+  </div>
+</ng-template>

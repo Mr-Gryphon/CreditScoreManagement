@@ -1,0 +1,866 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_company2ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_contractID",
+				"type": "bytes32"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			}
+		],
+		"name": "initiateNewIPFSC2C",
+		"outputs": [
+			{
+				"name": "_initiate",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "retriveTransactionC2CIPFS",
+		"outputs": [
+			{
+				"name": "lenderID",
+				"type": "bytes32"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			},
+			{
+				"name": "contractID",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_bankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "_hash",
+				"type": "string"
+			}
+		],
+		"name": "delayOnPaymentC2B",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_collectionAgencyName",
+				"type": "string"
+			},
+			{
+				"name": "_collectionAgencyAccountAddress",
+				"type": "address"
+			}
+		],
+		"name": "registerCollectionAgency",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_lenderID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_bankAccountNumberORContractID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_collectionAgencyID",
+				"type": "bytes32"
+			}
+		],
+		"name": "generateSeed",
+		"outputs": [
+			{
+				"name": "isSeedAdded",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "retriveTransactionB2CIPFS",
+		"outputs": [
+			{
+				"name": "lenderID",
+				"type": "bytes32"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			},
+			{
+				"name": "bankAccountAddress",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_company2ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_startDate",
+				"type": "uint256"
+			},
+			{
+				"name": "_endDate",
+				"type": "uint256"
+			}
+		],
+		"name": "giveAccessToCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyAccountAddress",
+				"type": "address"
+			},
+			{
+				"name": "_companyName",
+				"type": "string"
+			}
+		],
+		"name": "registerCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_contractIDOrbankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "_hash",
+				"type": "string"
+			}
+		],
+		"name": "updateArrearTime",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_between",
+				"type": "uint8"
+			}
+		],
+		"name": "totalTransaction",
+		"outputs": [
+			{
+				"name": "count",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_bankAccountAddress",
+				"type": "address"
+			},
+			{
+				"name": "_bankName",
+				"type": "string"
+			}
+		],
+		"name": "registerBank",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "acceptOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "queryCompanyDetails",
+		"outputs": [
+			{
+				"name": "ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "creditScore",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "index",
+				"type": "uint256"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			},
+			{
+				"name": "ID",
+				"type": "bytes32"
+			}
+		],
+		"name": "addIPFSHash",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_company2ID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_contractID",
+				"type": "bytes32"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			}
+		],
+		"name": "addIPFSCompanyToCompanyTx",
+		"outputs": [
+			{
+				"name": "_isTx",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getID",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_bankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			}
+		],
+		"name": "initiateNewIPFSB2C",
+		"outputs": [
+			{
+				"name": "_initiate",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_bankAccountNumberORContractID",
+				"type": "bytes32"
+			}
+		],
+		"name": "getSeed",
+		"outputs": [
+			{
+				"name": "seed",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			}
+		],
+		"name": "checkCreditScoreOFCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "newOwner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_bankAccountNumber",
+				"type": "bytes32"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			}
+		],
+		"name": "addIPFSCompanyToBankTx",
+		"outputs": [
+			{
+				"name": "_isTx",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "retriveCollectionAgencyTxOnDelay",
+		"outputs": [
+			{
+				"name": "CollectionAgencyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "Hash",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_companyID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_creditScore",
+				"type": "uint256"
+			}
+		],
+		"name": "updateCreditScore",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankName",
+				"type": "string"
+			}
+		],
+		"name": "BankAlreadyExist",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "BankAccountAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "BankName",
+				"type": "string"
+			}
+		],
+		"name": "BankAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyName",
+				"type": "string"
+			}
+		],
+		"name": "CompanyExist",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyAccountAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyName",
+				"type": "string"
+			}
+		],
+		"name": "CompanyAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CollectionAgencyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CollectionAgencyName",
+				"type": "string"
+			}
+		],
+		"name": "CollectionAgencyExist",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CollectionAgencyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CollectionAgencyAccountAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "CollectionAgencyName",
+				"type": "string"
+			}
+		],
+		"name": "CollectionAgencyAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "CollectionAgencyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "IPFSHash",
+				"type": "string"
+			}
+		],
+		"name": "DelayReason",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "BankID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "IPFSHash",
+				"type": "string"
+			}
+		],
+		"name": "DelayOnTxC2B",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "newIPFSCreditTransactionBanktoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "newIPFSDebitTransactionBanktoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "newIPFSCreditTransactionCompanytoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "newIPFSDebitTransactionCompanytoCompany",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "Company1ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "Company2ID",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "StartDate",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "EndDate",
+				"type": "uint256"
+			}
+		],
+		"name": "AccessGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "Generator",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "CompanyID",
+				"type": "bytes32"
+			}
+		],
+		"name": "SeedGenerated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "_to",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	}
+]
